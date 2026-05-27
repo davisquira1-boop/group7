@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Smart Student Task Manager — Web</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Smart Student Task Manager</h1>
+    <p class="subtitle">Web UI port — dependency-aware scheduling</p>
+  </header>
+  <main>
+    <aside class="controls">
+      <section class="panel">
+        <h3>Add Task</h3>
+        <div class="row"><label>ID</label><input id="inp-id" type="number"></div>
+        <div class="row"><label>Name</label><input id="inp-name" type="text"></div>
+        <div class="row"><label>Priority</label><input id="inp-pr" type="number"></div>
+        <div class="row"><label>Deadline</label><input id="inp-dl" type="number"></div>
+        <div class="row"><button id="btn-add">Add Task</button></div>
+      </section>
+
+      <section class="panel">
+        <h3>Dependency</h3>
+        <div class="row"><label>From (prereq)</label><input id="inp-from" type="number"></div>
+        <div class="row"><label>To (dependent)</label><input id="inp-to" type="number"></div>
+        <div class="row"><button id="btn-dep">Add Dependency</button></div>
+      </section>
+
+      <section class="panel">
+        <h3>Actions</h3>
+        <div class="row"><button id="btn-unlocked">Show Unlocked</button></div>
+        <div class="row"><button id="btn-master">Show Master Schedule</button></div>
+        <div class="row"><button id="btn-mark" disabled>Mark Selected Done</button></div>
+        <div class="row"><button id="btn-sample">Populate Sample</button></div>
+        <div class="row"><button id="btn-save">Save</button><button id="btn-load">Load</button></div>
+        <div class="row"><span id="status-text" class="status-text">Ready</span></div>
+      </section>
+    </aside>
+
+    <section class="center">
+      <h2>Master Schedule</h2>
+      <table id="master-table">
+        <thead><tr><th>ID</th><th>Name</th><th>Priority</th><th>Deadline</th><th>Status</th><th>Action</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <aside class="right">
+      <h3>Unlocked Tasks</h3>
+      <ul id="unlocked-list"></ul>
+
+      <h3>Console</h3>
+      <pre id="console"></pre>
+    </aside>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
